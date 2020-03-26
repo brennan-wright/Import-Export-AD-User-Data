@@ -10,16 +10,16 @@ Import/Export AD User Data using Powershell
 
 
 ## Notes about Import file fields:
-	Do not modify any columns from the export file to the import file that are listed below, the import script will ignore all these fields.
-		CN
-		DistinguishedName
-		ObjectClass
-		ObjectGUID
-		SamAccountName
-		SID
-		UserPrincipalName
-	For the 'Manager' column, please use the full 'Distinguished Name' of the manager you would like to use.
-	You may remove rows that you do not want to edit. This will not delete any users.
+Do not modify any columns from the export file to the import file that are listed below, the import script will ignore all these fields.
+CN
+DistinguishedName
+ObjectClass
+ObjectGUID
+SamAccountName
+SID
+UserPrincipalName
+For the 'Manager' column, please use the full 'Distinguished Name' of the manager you would like to use.
+You may remove rows that you do not want to edit. This will not delete any users.
 
 
 ## Steps to use scripts:
@@ -34,6 +34,9 @@ Import/Export AD User Data using Powershell
 7) Confirm the changes were made in AD.
 
 ## Customizing the script.
-### Import:
+### Export:
 You can change the "$Variable_Searchbase" variable to a different area so long as it is the in the fully distinguished format.
-You can change the fields that get exported by modifying -property. A list of properties is available here: https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617241(v=technet.10)#parameters
+You can change the fields that get exported by modifying -property. A list of properties is available here: https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617241(v=technet.10)#parameters. For my purposes changing it is not needed.
+
+### Import
+If you have more columns in your file that need to be updated, you need to map them in the "Set-ADUSer" line. Use the same names as listed in the parameters section of this page: https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617215(v=technet.10)#parameters. For my purposes changing it is not needed.
